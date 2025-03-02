@@ -19,13 +19,14 @@ class FolderPage extends StatelessWidget {
             leading: Icon(Icons.folder, size: 48),
             title: Text("内部存储"),
             trailing: Icon(Icons.navigate_next),
-            onTap:
-                () => context.push(
-                  Uri(
-                    path: '/${Routes.folder.path}',
-                    queryParameters: {'path': 'test'},
-                  ).toString(),
-                ),
+            onTap: () {
+              context.push(
+                Uri(
+                  path: '/${Routes.folder.path}',
+                  queryParameters: {'path': 'test'},
+                ).toString(),
+              );
+            },
           ),
         ],
       ),
