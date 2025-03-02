@@ -1,5 +1,5 @@
 import 'package:fluora/page_context.dart';
-import 'package:fluora/pages/folder/index.dart';
+import 'package:fluora/pages/home/folder/index.dart';
 import 'package:fluora/pages/home/index.dart';
 import 'package:fluora/pages/not_found.dart';
 import 'package:fluora/pages/scaffold_with_navbar.dart';
@@ -8,21 +8,21 @@ import 'package:go_router/go_router.dart';
 
 class RoutesData {
   final String path;
-  final String? name;
+  final String name;
 
-  RoutesData({required this.path, this.name});
+  RoutesData({required this.path, required this.name});
 }
 
 class Routes {
-  static final RoutesData home = RoutesData(path: "/", name: "folder");
-  static final RoutesData clouds = RoutesData(path: "/clouds", name: "cloud");
+  static final RoutesData home = RoutesData(path: "/", name: "本地");
+  static final RoutesData clouds = RoutesData(path: "/clouds", name: "网络");
   static final RoutesData playlists = RoutesData(
     path: "/playlists",
-    name: "playlists",
+    name: "播放列表",
   );
   static final RoutesData downloads = RoutesData(
     path: "/downloads",
-    name: "downloads",
+    name: "下载",
   );
 
   // NOTE: Don't need to specify "/" character for router’s parents
@@ -46,47 +46,47 @@ class Routes {
 
   static GoRoute _downloadsRoute() {
     return GoRoute(
-          path: downloads.path,
-          name: downloads.name,
-          builder: (context, state) => PageContext(title: "下载"),
-        );
+      path: downloads.path,
+      name: downloads.name,
+      builder: (context, state) => PageContext(title: downloads.name),
+    );
   }
 
   static GoRoute _palylistsRoute() {
     return GoRoute(
-          path: playlists.path,
-          name: playlists.name,
-          builder: (context, state) => PageContext(title: "播放列表"),
-        );
+      path: playlists.path,
+      name: playlists.name,
+      builder: (context, state) => PageContext(title: playlists.name),
+    );
   }
 
   static GoRoute _cloudRoute() {
     return GoRoute(
-          path: clouds.path,
-          name: clouds.name,
-          builder: (context, state) => PageContext(title: "网络"),
-        );
+      path: clouds.path,
+      name: clouds.name,
+      builder: (context, state) => PageContext(title: clouds.name),
+    );
   }
 
   static GoRoute _folderRoute() {
     return GoRoute(
-          path: home.path,
-          name: home.name,
-          builder: (context, state) => HomePage(title: '本地'),
+      path: home.path,
+      name: home.name,
+      builder: (context, state) => HomePage(title: home.name),
 
-          routes: [
-            GoRoute(
-              path: folder.path,
-              name: folder.name,
-              builder: (context, state) {
-                final String? path = state.uri.queryParameters['path'];
-                if (path == null || path.isEmpty) {
-                  return NotFound();
-                }
-                return FolderPage(title: path);
-              },
-            ),
-          ],
-        );
+      routes: [
+        GoRoute(
+          path: folder.path,
+          name: folder.name,
+          builder: (context, state) {
+            final String? path = state.uri.queryParameters['path'];
+            if (path == null || path.isEmpty) {
+              return NotFound();
+            }
+            return FolderPage(path: path);
+          },
+        ),
+      ],
+    );
   }
 }

@@ -1,16 +1,21 @@
 # fluora
 
-A new Flutter project.
+一个励志成为nplayer替代品的播放器！
 
-## Getting Started
+## 快速开始
 
-This project is a starting point for a Flutter application.
+1. 安装依赖
+```bash
+flutter pub get
+```
 
-A few resources to get you started if this is your first Flutter project:
+2. 运行
+```bash
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 技术选型
+- flutter < 4 && >= 3.29.0
+- dart < 4 && >= 3.7.0
+- 路由管理：go_router
+- 状态管理：还没想好
