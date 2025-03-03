@@ -12,6 +12,7 @@ import 'package:fluora/routes.dart';
 import 'package:fluora/utils/folder/index.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path_provider/path_provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.title});
@@ -25,10 +26,10 @@ class HomePage extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: EdgeInsets.all(10),
-            leading: Icon(Icons.folder, size: 48),
+            leading: Icon(Icons.folder_open, size: 48),
             title: Text("内部存储"),
             trailing: Icon(Icons.navigate_next),
-            onTap: () {
+            onTap: () async {
               context.push(
                 Uri(
                   path: '/${Routes.folder.path}',

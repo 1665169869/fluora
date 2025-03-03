@@ -11,16 +11,21 @@
 import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class Folder {
-  static final String root =
-      Platform.isAndroid ? "/storage/emulated/0" : "/Users/Shared";
+  static String get root {
+    if (Platform.isAndroid) {
+      return '/storage/emulated/0';
+    } else {
+      assert(false, '暂时只支持安卓平台');
+      return '';
+    }
+  }
 
-  static void getDirectory(String path) {
+  static Directory getDirectory(String path) {
     final Directory dir = Directory(path);
 
-    final Stream<String> dirList = dir.list().map((e) {
-      return e.path;
-    });
+    return dir;
   }
 }
