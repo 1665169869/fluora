@@ -12,7 +12,6 @@ import 'package:fluora/routes.dart';
 import 'package:fluora/utils/folder/index.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:path_provider/path_provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.title});
