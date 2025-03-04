@@ -88,14 +88,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  go_router:
+  get:
     dependency: "direct main"
     description:
-      name: go_router
-      sha256: f02fd7d2a4dc512fec615529824fdd217fecb3a3d3de68360293a551f21634b3
+      name: get
+      sha256: c79eeb4339f1f3deffd9ec912f8a923834bec55f7b49c9e882b8fef2c139d425
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "14.8.1"
+    version: "4.7.2"
   leak_tracker:
     dependency: transitive
     description:
@@ -128,14 +128,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.1.1"
-  logging:
-    dependency: transitive
-    description:
-      name: logging
-      sha256: c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.3.0"
   matcher:
     dependency: transitive
     description:
