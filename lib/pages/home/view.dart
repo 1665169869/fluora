@@ -2,7 +2,7 @@
  * @Author: 白羽 1665169869@qq.com
  * @Date: 2025-03-04 21:28:53
  * @LastEditors: 白羽 1665169869@qq.com
- * @LastEditTime: 2025-03-04 21:59:29
+ * @LastEditTime: 2025-03-06 22:56:31
  * @FilePath: \fluora\lib\pages\home\view.dart
  * @Description:
  * Copyright (c) 2025 by 白羽 1665169869@qq.com, All Rights Reserved.
@@ -20,7 +20,7 @@ class HomePage extends GetView<HomeController> {
 
   Widget _buildView() {
     return Navigator(
-      key: Get.nestedKey(controller.routeKeyId),
+      key: Get.nestedKey(controller.currentNavigatorKey),
       initialRoute: Routes.folder,
       onGenerateRoute: controller.onGenerateRoute,
     );
@@ -28,21 +28,17 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(
-      init: HomeController(),
-      id: "main",
-      builder: (_) {
-        return Scaffold(
-          body: _buildView(),
-          bottomNavigationBar: Obx(
-            () => NavigationBar(
-              destinations: navigationDestinations,
-              onDestinationSelected: controller.changeSelected,
-              selectedIndex: controller.selectedIndex.value,
-            ),
-          ),
-        );
-      },
+    Get.put(HomeController());
+
+    return Scaffold(
+      body: _buildView(),
+      bottomNavigationBar: Obx(
+        () => NavigationBar(
+          destinations: navigationDestinations,
+          onDestinationSelected: controller.changeSelected,
+          selectedIndex: controller.selectedIndex.value,
+        ),
+      ),
     );
   }
 }
